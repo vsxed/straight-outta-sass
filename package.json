@@ -1,0 +1,25 @@
+{
+	"name": "straight outta sass",
+	"version": "0.0.1",
+	"description": "a fucking cool sass grid",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vsxed/straight-outta-sass"
+	},
+	"author": {
+		"name": "Eduard Mayer",
+		"email": "kontakt@eduardmayer.de"
+	},
+	"contributors": [],
+	"dependencies": {
+		"gulp": "*",
+		"gulp-autoprefixer": "*",
+    	"gulp-concat": "^2.3.4",
+    	"gulp-cssmin": "*",
+    	"gulp-sass": "*",
+		"gulp-notify": "^1.4.2",
+    	"gulp-load-plugins": "^0.6.0-beta",
+    	"streamqueue": "^0.1.2",
+    	"gulp-plumber": "*"
+	}
+}

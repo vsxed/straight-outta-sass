@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>straight outta sass (grid)</title>
+
+	<link rel="stylesheet" href="../dist/module.grid.css">
+
+	<style>
+		* {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			padding: 0;	
+			font-family: sans-serif;
+		}
+
+		.wrap {
+			max-width: 1200px;
+			margin: 24px auto 0;
+		}
+
+		section, header {
+			padding: 24px 20px;
+			margin: 0 -20px;
+		}
+		
+		header {
+			background: #eee;
+		}
+
+		.unit {
+			border: 1px dashed #eee;
+		}
+
+		.unit__header {
+			text-transform: uppercase;
+			font-size: 2em;
+			text-align: center;
+		}
+
+		.unit__content {}
+
+
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<header role="header">
+			<h1>straight outta sass</h1>
+			<p>This is a unit test for sos-modules</p>
+		</header>
+		<section role="main">
+			<section class="unit">
+				<h2 class="unit__header">Grid</h2>
+				<div class="unit__content">
+					
+				</div>
+			</section>
+		</section>
+	</div>
+</body>
+</html>

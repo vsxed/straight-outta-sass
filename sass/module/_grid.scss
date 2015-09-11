@@ -1,0 +1,105 @@
+// module.grid
+// ===========
+// 
+// Welcome to the grid module.
+// It's frickin cool and mobile first
+
+// setup:
+//   TODO
+
+$sos-debug: true !default;
+
+// === BREAKPOINTS ===
+$sos-breakpoints: (
+	'smartphone' 	'(max-width: 40.062em)',
+	'mobile' 	 	'(max-width: 48.0625em)',
+	'portrait' 		'(min-width: 40.063em) and (max-width: 48.0625em)',
+	'desktop' 		'(min-width: 48.0626em)',
+) !default;
+
+// You can also use your own breakpoints. But this grid also has its own standard breakpoints, because it is so. 
+// Accept it.
+$breakpoints: 			$sos-breakpoints !default;
+
+// === NUMBERS ===
+$sos-columns: 			12 !default;
+$sos-gutter: 			20px !default;
+
+// === OPTIONS ===
+$sos-be-responsive: 	true !default;
+$sos-be-mobilefirst:	true !default;
+$sos-use-fractions: 	true !default;
+$sos-use-push: 			false !default;
+$sos-use-pull: 			false !default;
+
+// That's it. You can stop reading any further.
+
+$sos-class-fraction: if($sos-use-fractions, '/', '-of-');
+
+// Debugging
+$sos-settings: (
+	'breakpoints' length($breakpoints),
+	'sos-columns' $sos-columns,
+	'sos-gutter' $sos-gutter,
+	'sos-be-responsive' $sos-be-responsive,
+	'sos-be-mobilefirst' $sos-be-mobilefirst,
+	'sos-use-fractions' $sos-use-fractions,
+	'sos-use-push' $sos-use-push,
+	'sos-use-pull' $sos-use-pull,
+);
+
+
+@if $sos-debug {
+
+	$sos-debug-value: '';
+	@each $name, $setting in $sos-settings {
+		$sos-debug-value: $sos-debug-value + '\a ' + '$#{$name}: ' + inspect($setting);
+	}
+	
+	/* Debugging */
+	body:before {
+		content: 'SASS Variables: \a' + $sos-debug-value;
+
+		display: block;
+		background: #eee;
+		width: 90%;
+		max-width: 1200px;
+		margin: 24px auto 0;
+		padding: 24px 20px;
+		
+		white-space: pre;
+		line-height: 2;
+	}
+}
+
+
+// mixins
+// ===========
+// 
+// These mixins are for internal purposes only.
+// I mean, you can also use them outside of this module, but its not really recommended.
+// This module is built to work standalone.
+
+@mixin sos-mq($mq) {
+	$breakpoint-found: false;
+
+	@each $breakpoint in $breakpoints {
+
+        $name: 		nth($breakpoint, 1);
+        $condition: nth($breakpoint, 2);
+
+        @if $mq == $name and $condition {
+            $breakpoint-found: true;
+
+            @media only screen and #{$condition} { @content; }
+        } 
+
+        @else {
+        	@warn "Hey brah. Seems like you gotta malformed list of media queries or just forgot something. Check it. CHECK IT NOW.";
+        }
+    }
+
+    @if not $breakpoint-found{
+        @warn "Woah dude. What the f*$!% is ‘#{$mq}’?!";
+    }
+}
