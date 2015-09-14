@@ -105,4 +105,63 @@ $sos-settings: (
         @warn "Woah dude. What the f*$!% is ‘#{$mq}’?!";
     }
 }
+
+@mixin sos-fixed-widths($class, $list) {
+	/* fixed widths */
+	@each $width in $list {
+		$sos-base-fixed-width: $width;
+
+		@while $width > 0 {
+			.#{unquote($class)}-#{$width}#{unquote($sos-class-fraction)}#{$sos-base-fixed-width} {
+				width: ((100% / $sos-base-fixed-width) * $width);
+			}
+
+			$width: $width - 1;
+		}
+	}
+}
+
+@mixin sos-grid($class, $currentCol, $maxCol, $fraction) {
+	.#{unquote($class)}-#{$currentCol}#{unquote($fraction)}#{$maxCol} {
+		content: $maxCol % $currentCol;
+		content: $maxCol / $currentCol;
+		width: (($currentCol / $maxCol) * 100%);
+	}
+}
+
+// widths
+// ===========
+// 
+// Here be magic.
+
+
+$columns: $sos-columns;
+@while $columns > 0 {
+	@include sos-grid($sos-default-class, $columns, $sos-columns, $sos-class-fraction);
+
+	$columns: $columns - 1;
+}
+
+@if $sos-use-fixed-widths {
+	@include sos-fixed-widths($sos-default-class, $sos-fixed-widths);
+}
+
+@if $sos-be-responsive {
+	@each $breakpoint in $breakpoints {
+
+		$name: if($sos-use-short-bp, str-slice(nth($breakpoint, 1), 1, 2), nth($breakpoint, 1));
+		$columns: $sos-columns;
+
+		@include sos-mq(nth($breakpoint, 1)) {
+			@while $columns > 0 {
+				@include sos-grid($name, $columns, $sos-columns, $sos-class-fraction);
+
+				$columns: ($columns - 1); 
+			}
+
+			@if $sos-use-fixed-widths {
+				@include sos-fixed-widths($name, $sos-fixed-widths);
+			}
+		}
+	}
 }

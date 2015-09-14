@@ -4,6 +4,8 @@
  */
 
 
-$sos-use-fractions: true;
+// $sos-use-fractions: false;
+// $sos-use-short-bp: false;
+$sos-debug: true;
 
 @import "module/grid";
