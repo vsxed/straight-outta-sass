@@ -21,9 +21,10 @@
 //   $sos-use-short-bp:             bool (true)             - choose whether you want to use short breakpoint names in your responsive classes
 //   $sos-use-fixed-widths:         bool (true)             - choose if you want to use fixed-width classes
 //   $sos-use-pull / -push:         bool (…)                - choose if you want to have pull or/and push classes
-//   $sos-use-equal-height:         bool (…)                - choose if you want to have the option to have equal heights in your grid
-//   $sos-use-reverse:              bool (…)                - choose if you want to have the option to reverse your grid item order
-//   $sos-use-gutterless:           bool (…)                - choose if you want to have the option to remove your grid gutter using a class
+//   $sos-use-equal-height:         bool (true)             - choose if you want to have the option to have equal heights in your grid
+//   $sos-use-reverse:              bool (true)             - choose if you want to have the option to reverse your grid item order
+//   $sos-use-gutterless:           bool (true)             - choose if you want to have the option to remove your grid gutter using a class
+//   $sos-use-animations:           bool (true)             - choose if you want to have the option to animate you grid item sizes
 
 $sos-debug: false !default;
 
@@ -60,6 +61,7 @@ $sos-use-pull:          false !default;
 $sos-use-equal-height:  true !default;
 $sos-use-reverse:       true !default;
 $sos-use-gutterless:    true !default;
+$sos-use-animations:    true !default;
 
 // That's it. You can stop reading any further.
 
@@ -226,7 +228,7 @@ $sos-settings: (
         }
     }
 
-    @warn "Caution: the `equal heights` option uses css calc() to size the grid properly! \aThere's no native workaround for this issue but a polyfill. Fuck IE8.";
+    @warn "the `equal heights` option uses css calc() to size the grid properly! \aThere's no native workaround for this issue but a polyfill. Fuck IE8.";
 
     @if $sos-be-responsive {
         @each $breakpoint in $breakpoints {
@@ -244,6 +246,14 @@ $sos-settings: (
                 }
             }
         }
+    }
+}
+
+// animations option
+// 
+@if $sos-use-animations {
+    .#{$sos-default-grid-class}, .#{$sos-default-grid-item-class} {
+        transition: width 0.5s ease-in-out;
     }
 }
 
