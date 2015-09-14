@@ -1,5 +1,5 @@
 {
-	"name": "straight outta sass",
+	"name": "straight-outta-sass",
 	"version": "0.0.1",
 	"description": "a fucking cool sass grid",
 	"repository": {
@@ -20,6 +20,7 @@
 		"gulp-notify": "^1.4.2",
     	"gulp-load-plugins": "^0.6.0-beta",
     	"streamqueue": "^0.1.2",
-    	"gulp-plumber": "*"
+    	"gulp-plumber": "*",
+    	"gulp-combine-media-queries": "*"
 	}
 }

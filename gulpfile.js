@@ -1,5 +1,6 @@
 var gulp     = require('gulp'),
     queue    = require('streamqueue'),
+    cmq 	 = require('gulp-combine-media-queries'),
     $        = require('gulp-load-plugins')();
 
 var src = {
@@ -23,7 +24,8 @@ gulp.task('build-css', [], function() {
             	'Safari >= 5',
             	'Explorer >= 9'
             	]
-            }))
+            })).
+            pipe(cmq())
 		).
 		pipe($.concat('module.grid.css')).
 		pipe(gulp.dest(dest['css']))
