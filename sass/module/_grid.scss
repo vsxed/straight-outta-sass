@@ -7,18 +7,20 @@
 // setup:
 //   e.g.: $variable: type (default) - description
 // 
-//   $sos-debug: 			bool (false) 		- activate/deactivate debug log
-//   $sos-breakpoints: 		list (…) 			- default list of breakpoints to create mediaqueries
-//   $sos-columns: 			int (12) 			- number of columns to use within the grid
-//   $sos-gutter: 			px (20px) 			- size of the gutter between each fragment
-//   $sos-fixed-widths: 	list (1,2,3,4) 		- choose whether you want to have fixed-width classes like "1-2", "3-4", and so on..
-//   $sos-default-class: 	string ('default') 	- set your default class prefix
-//   $sos-be-responsive: 	bool (true) 		- choose if the whole construction should be responsive
-//   $sos-be-mobilefirst: 	bool (true) 		- choose if the grid should be build mobile first
-//   $sos-use-fractions: 	bool (true) 		- choose if you want to have classes like "1-2" or "1-of-2". The alternative can be changed.
-//   $sos-use-short-bp: 	bool (true) 		- choose whether you want to use short breakpoint names in your responsive classes
-//   $sos-use-fixed-widths: bool (true) 		- choose if you want to use fixed-width classes
-//   $sos-use-pull / -push: bool (…) 			- choose if you want to have pull or/and push classes
+//   $sos-debug: 					bool (false) 			- activate/deactivate debug log
+//   $sos-breakpoints: 				list (…) 				- default list of breakpoints to create mediaqueries
+//   $sos-columns: 					int (12) 				- number of columns to use within the grid
+//   $sos-gutter: 					px (20px) 				- size of the gutter between each fragment
+//   $sos-fixed-widths: 			list (1,2,3,4) 			- choose whether you want to have fixed-width classes like "1-2", "3-4", and so on..
+//   $sos-default-class: 			string ('default') 		- set your default class prefix
+//   $sos-default-grid-class: 		string ('grid') 		- set your default grid class
+//   $sos-default-grid-item-class: 	string ('grid__item') 	- set your default grid item class
+//   $sos-be-responsive: 			bool (true) 			- choose if the whole construction should be responsive
+//   $sos-be-mobilefirst: 			bool (true) 			- choose if the grid should be build mobile first
+//   $sos-use-fractions: 			bool (true) 			- choose if you want to have classes like "1-2" or "1-of-2". The alternative can be changed.
+//   $sos-use-short-bp: 			bool (true) 			- choose whether you want to use short breakpoint names in your responsive classes
+//   $sos-use-fixed-widths: 		bool (true) 			- choose if you want to use fixed-width classes
+//   $sos-use-pull / -push: 		bool (…) 				- choose if you want to have pull or/and push classes
 
 $sos-debug: false !default;
 
@@ -41,6 +43,8 @@ $sos-fixed-widths: 		(1, 2, 3, 4) !default;
 
 // === CLASSES ===
 $sos-default-class: 	'default' !default;
+$sos-default-grid-class: 'grid' !default;
+$sos-default-grid-item-class: 'grid__item' !default;
 
 // === OPTIONS ===
 $sos-be-responsive: 	true !default;
@@ -142,11 +146,34 @@ $sos-settings: (
 	}
 }
 
+// classes
+// ===========
+// generate grid classes
+
+.#{$sos-default-grid-class}, .#{$sos-default-grid-item-class} {
+	box-sizing: border-box;
+}
+
+.#{$sos-default-grid-class} {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin-left: -($sos-gutter);
+	letter-spacing: -0.31em;
+}
+
+.#{$sos-default-grid-item-class} {
+	display: inline-block;
+	@if $sos-be-mobilefirst { width: 100%; }
+
+	padding-left: $sos-gutter;
+	vertical-align: top;
+	letter-spacing: normal;
+}
+
 // widths
 // ===========
-// 
 // Here be magic.
-
 
 $columns: $sos-columns;
 @while $columns > 0 {
