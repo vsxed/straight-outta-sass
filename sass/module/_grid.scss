@@ -21,6 +21,7 @@
 //   $sos-use-short-bp: 			bool (true) 			- choose whether you want to use short breakpoint names in your responsive classes
 //   $sos-use-fixed-widths: 		bool (true) 			- choose if you want to use fixed-width classes
 //   $sos-use-pull / -push: 		bool (…) 				- choose if you want to have pull or/and push classes
+//   $sos-use-equal-height: 		bool (…) 				- choose if you want to have the option to have equal heights in your grid
 
 $sos-debug: false !default;
 
@@ -54,6 +55,7 @@ $sos-use-short-bp: 		true !default;
 $sos-use-fixed-widths: 	true !default;
 $sos-use-push: 			false !default;
 $sos-use-pull: 			false !default;
+$sos-use-equal-height:  false !default;
 
 // That's it. You can stop reading any further.
 
