@@ -99,13 +99,10 @@ $sos-settings: (
 
             @media only screen and #{$condition} { @content; }
         } 
-
-        @else {
-        	@warn "Hey brah. Seems like you gotta malformed list of media queries or just forgot something. Check it. CHECK IT NOW.";
-        }
     }
 
-    @if not $breakpoint-found{
+    @if not $breakpoint-found {
         @warn "Woah dude. What the f*$!% is ‘#{$mq}’?!";
     }
+}
 }
