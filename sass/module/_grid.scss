@@ -7,57 +7,57 @@
 // setup:
 //   e.g.: $variable: type (default) - description
 // 
-//   $sos-debug: 					bool (false) 			- activate/deactivate debug log
-//   $sos-breakpoints: 				list (…) 				- default list of breakpoints to create mediaqueries
-//   $sos-columns: 					int (12) 				- number of columns to use within the grid
-//   $sos-gutter: 					px (20px) 				- size of the gutter between each fragment
-//   $sos-fixed-widths: 			list (1,2,3,4) 			- choose whether you want to have fixed-width classes like "1-2", "3-4", and so on..
-//   $sos-default-class: 			string ('default') 		- set your default class prefix
-//   $sos-default-grid-class: 		string ('grid') 		- set your default grid class
-//   $sos-default-grid-item-class: 	string ('grid__item') 	- set your default grid item class
-//   $sos-be-responsive: 			bool (true) 			- choose if the whole construction should be responsive
-//   $sos-be-mobilefirst: 			bool (true) 			- choose if the grid should be build mobile first
-//   $sos-use-fractions: 			bool (true) 			- choose if you want to have classes like "1-2" or "1-of-2". The alternative can be changed.
-//   $sos-use-short-bp: 			bool (true) 			- choose whether you want to use short breakpoint names in your responsive classes
-//   $sos-use-fixed-widths: 		bool (true) 			- choose if you want to use fixed-width classes
-//   $sos-use-pull / -push: 		bool (…) 				- choose if you want to have pull or/and push classes
-//   $sos-use-equal-height: 		bool (…) 				- choose if you want to have the option to have equal heights in your grid
-//   $sos-use-reverse: 				bool (…) 				- choose if you want to have the option to reverse your grid item order
+//   $sos-debug:                    bool (false)            - activate/deactivate debug log
+//   $sos-breakpoints:              list (…)                - default list of breakpoints to create mediaqueries
+//   $sos-columns:                  int (12)                - number of columns to use within the grid
+//   $sos-gutter:                   px (20px)               - size of the gutter between each fragment
+//   $sos-fixed-widths:             list (1,2,3,4)          - choose whether you want to have fixed-width classes like "1-2", "3-4", and so on..
+//   $sos-default-class:            string ('default')      - set your default class prefix
+//   $sos-default-grid-class:       string ('grid')         - set your default grid class
+//   $sos-default-grid-item-class:  string ('grid__item')   - set your default grid item class
+//   $sos-be-responsive:            bool (true)             - choose if the whole construction should be responsive
+//   $sos-be-mobilefirst:           bool (true)             - choose if the grid should be build mobile first
+//   $sos-use-fractions:            bool (true)             - choose if you want to have classes like "1-2" or "1-of-2". The alternative can be changed.
+//   $sos-use-short-bp:             bool (true)             - choose whether you want to use short breakpoint names in your responsive classes
+//   $sos-use-fixed-widths:         bool (true)             - choose if you want to use fixed-width classes
+//   $sos-use-pull / -push:         bool (…)                - choose if you want to have pull or/and push classes
+//   $sos-use-equal-height:         bool (…)                - choose if you want to have the option to have equal heights in your grid
+//   $sos-use-reverse:              bool (…)                - choose if you want to have the option to reverse your grid item order
 
 $sos-debug: false !default;
 
 // === BREAKPOINTS ===
 $sos-breakpoints: (
-	'smartphone' 	'(max-width: 40.062em)',
-	'mobile' 	 	'(max-width: 48.0625em)',
-	'portrait' 		'(min-width: 40.063em) and (max-width: 48.0625em)',
-	'desktop' 		'(min-width: 48.0626em)',
+    'smartphone'    '(max-width: 40.062em)',
+    'mobile'        '(max-width: 48.0625em)',
+    'portrait'      '(min-width: 40.063em) and (max-width: 48.0625em)',
+    'desktop'       '(min-width: 48.0626em)',
 ) !default;
 
 // You can also use your own breakpoints. But this grid also has its own standard breakpoints, because it is so. 
 // Accept it.
-$breakpoints: 			$sos-breakpoints !default;
+$breakpoints:           $sos-breakpoints !default;
 
 // === NUMBERS ===
-$sos-columns: 			12 !default;
-$sos-gutter: 			20px !default;
-$sos-fixed-widths: 		(1, 2, 3, 4) !default;
+$sos-columns:           12 !default;
+$sos-gutter:            20px !default;
+$sos-fixed-widths:      (1, 2, 3, 4) !default;
 
 // === CLASSES ===
-$sos-default-class: 	'default' !default;
+$sos-default-class:     'default' !default;
 $sos-default-grid-class: 'grid' !default;
 $sos-default-grid-item-class: 'grid__item' !default;
 
 // === OPTIONS ===
-$sos-be-responsive: 	true !default;
-$sos-be-mobilefirst:	true !default;
-$sos-use-fractions: 	true !default;
-$sos-use-short-bp: 		true !default;
-$sos-use-fixed-widths: 	true !default;
-$sos-use-push: 			false !default;
-$sos-use-pull: 			false !default;
+$sos-be-responsive:     true !default;
+$sos-be-mobilefirst:    true !default;
+$sos-use-fractions:     true !default;
+$sos-use-short-bp:      true !default;
+$sos-use-fixed-widths:  true !default;
+$sos-use-push:          false !default;
+$sos-use-pull:          false !default;
 $sos-use-equal-height:  false !default;
-$sos-use-reverse: 		true !default;
+$sos-use-reverse:       true !default;
 
 // That's it. You can stop reading any further.
 
@@ -65,38 +65,38 @@ $sos-class-fraction: if($sos-use-fractions, '-', '-of-');
 
 // Debugging
 $sos-settings: (
-	'breakpoints' length($breakpoints),
-	'sos-columns' $sos-columns,
-	'sos-gutter' $sos-gutter,
-	'sos-be-responsive' $sos-be-responsive,
-	'sos-be-mobilefirst' $sos-be-mobilefirst,
-	'sos-use-fractions' $sos-use-fractions,
-	'sos-use-push' $sos-use-push,
-	'sos-use-pull' $sos-use-pull,
+    'breakpoints' length($breakpoints),
+    'sos-columns' $sos-columns,
+    'sos-gutter' $sos-gutter,
+    'sos-be-responsive' $sos-be-responsive,
+    'sos-be-mobilefirst' $sos-be-mobilefirst,
+    'sos-use-fractions' $sos-use-fractions,
+    'sos-use-push' $sos-use-push,
+    'sos-use-pull' $sos-use-pull,
 );
 
 
 @if $sos-debug {
 
-	$sos-debug-value: '';
-	@each $name, $setting in $sos-settings {
-		$sos-debug-value: $sos-debug-value + '\a ' + '$#{$name}: ' + inspect($setting);
-	}
-	
-	/* Debugging */
-	body:before {
-		content: 'SASS Variables: \a' + $sos-debug-value;
+    $sos-debug-value: '';
+    @each $name, $setting in $sos-settings {
+        $sos-debug-value: $sos-debug-value + '\a ' + '$#{$name}: ' + inspect($setting);
+    }
+    
+    /* Debugging */
+    body:before {
+        content: 'SASS Variables: \a' + $sos-debug-value;
 
-		display: block;
-		background: #eee;
-		width: 90%;
-		max-width: 1200px;
-		margin: 24px auto 0;
-		padding: 24px 20px;
-		
-		white-space: pre;
-		line-height: 2;
-	}
+        display: block;
+        background: #eee;
+        width: 90%;
+        max-width: 1200px;
+        margin: 24px auto 0;
+        padding: 24px 20px;
+        
+        white-space: pre;
+        line-height: 2;
+    }
 }
 
 
@@ -108,11 +108,11 @@ $sos-settings: (
 // This module is built to work standalone.
 
 @mixin sos-mq($mq) {
-	$breakpoint-found: false;
+    $breakpoint-found: false;
 
-	@each $breakpoint in $breakpoints {
+    @each $breakpoint in $breakpoints {
 
-        $name: 		nth($breakpoint, 1);
+        $name:      nth($breakpoint, 1);
         $condition: nth($breakpoint, 2);
 
         @if $mq == $name and $condition {
@@ -128,24 +128,24 @@ $sos-settings: (
 }
 
 @mixin sos-fixed-widths($class, $list) {
-	/* fixed widths */
-	@each $width in $list {
-		$sos-base-fixed-width: $width;
+    /* fixed widths */
+    @each $width in $list {
+        $sos-base-fixed-width: $width;
 
-		@while $width > 0 {
-			.#{unquote($class)}-#{$width}#{unquote($sos-class-fraction)}#{$sos-base-fixed-width} {
-				width: ((100% / $sos-base-fixed-width) * $width);
-			}
+        @while $width > 0 {
+            .#{unquote($class)}-#{$width}#{unquote($sos-class-fraction)}#{$sos-base-fixed-width} {
+                width: ((100% / $sos-base-fixed-width) * $width);
+            }
 
-			$width: $width - 1;
-		}
-	}
+            $width: $width - 1;
+        }
+    }
 }
 
 @mixin sos-grid($class, $currentCol, $maxCol, $fraction) {
-	.#{unquote($class)}-#{$currentCol}#{unquote($fraction)}#{$maxCol} {
-		width: (($currentCol / $maxCol) * 100%);
-	}
+    .#{unquote($class)}-#{$currentCol}#{unquote($fraction)}#{$maxCol} {
+        width: (($currentCol / $maxCol) * 100%);
+    }
 }
 
 // classes
@@ -153,24 +153,24 @@ $sos-settings: (
 // generate grid classes
 
 .#{$sos-default-grid-class}, .#{$sos-default-grid-item-class} {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .#{$sos-default-grid-class} {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	margin-left: -($sos-gutter);
-	letter-spacing: -0.31em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: -($sos-gutter);
+    letter-spacing: -0.31em;
 }
 
 .#{$sos-default-grid-item-class} {
-	display: inline-block;
-	@if $sos-be-mobilefirst { width: 100%; }
+    display: inline-block;
+    @if $sos-be-mobilefirst { width: 100%; }
 
-	padding-left: $sos-gutter;
-	vertical-align: top;
-	letter-spacing: normal;
+    padding-left: $sos-gutter;
+    vertical-align: top;
+    letter-spacing: normal;
 }
 
 // grid modifiers
@@ -179,19 +179,19 @@ $sos-settings: (
 // reverse option
 // 
 %reverse {
-	direction: rtl;
-	text-align: left;
+    direction: rtl;
+    text-align: left;
 
-	> .#{$sos-default-grid-item-class} {
-		direction: ltr;
-		text-align: left;
-	}
+    > .#{$sos-default-grid-item-class} {
+        direction: ltr;
+        text-align: left;
+    }
 }
 
 .#{$sos-default-grid-class}--reverse,
 .#{$sos-default-grid-class}--rev,
 .#{$sos-default-grid-class}--revert {
-	@extend %reverse;
+    @extend %reverse;
 }
 
 // widths
@@ -200,31 +200,31 @@ $sos-settings: (
 
 $columns: $sos-columns;
 @while $columns > 0 {
-	@include sos-grid($sos-default-class, $columns, $sos-columns, $sos-class-fraction);
+    @include sos-grid($sos-default-class, $columns, $sos-columns, $sos-class-fraction);
 
-	$columns: $columns - 1;
+    $columns: $columns - 1;
 }
 
 @if $sos-use-fixed-widths {
-	@include sos-fixed-widths($sos-default-class, $sos-fixed-widths);
+    @include sos-fixed-widths($sos-default-class, $sos-fixed-widths);
 }
 
 @if $sos-be-responsive {
-	@each $breakpoint in $breakpoints {
+    @each $breakpoint in $breakpoints {
 
-		$name: if($sos-use-short-bp, str-slice(nth($breakpoint, 1), 1, 2), nth($breakpoint, 1));
-		$columns: $sos-columns;
+        $name: if($sos-use-short-bp, str-slice(nth($breakpoint, 1), 1, 2), nth($breakpoint, 1));
+        $columns: $sos-columns;
 
-		@include sos-mq(nth($breakpoint, 1)) {
-			@while $columns > 0 {
-				@include sos-grid($name, $columns, $sos-columns, $sos-class-fraction);
+        @include sos-mq(nth($breakpoint, 1)) {
+            @while $columns > 0 {
+                @include sos-grid($name, $columns, $sos-columns, $sos-class-fraction);
 
-				$columns: ($columns - 1); 
-			}
+                $columns: ($columns - 1); 
+            }
 
-			@if $sos-use-fixed-widths {
-				@include sos-fixed-widths($name, $sos-fixed-widths);
-			}
-		}
-	}
+            @if $sos-use-fixed-widths {
+                @include sos-fixed-widths($name, $sos-fixed-widths);
+            }
+        }
+    }
 }
