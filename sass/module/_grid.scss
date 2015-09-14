@@ -22,6 +22,7 @@
 //   $sos-use-fixed-widths: 		bool (true) 			- choose if you want to use fixed-width classes
 //   $sos-use-pull / -push: 		bool (…) 				- choose if you want to have pull or/and push classes
 //   $sos-use-equal-height: 		bool (…) 				- choose if you want to have the option to have equal heights in your grid
+//   $sos-use-reverse: 				bool (…) 				- choose if you want to have the option to reverse your grid item order
 
 $sos-debug: false !default;
 
@@ -56,6 +57,7 @@ $sos-use-fixed-widths: 	true !default;
 $sos-use-push: 			false !default;
 $sos-use-pull: 			false !default;
 $sos-use-equal-height:  false !default;
+$sos-use-reverse: 		true !default;
 
 // That's it. You can stop reading any further.
 
@@ -171,6 +173,27 @@ $sos-settings: (
 	padding-left: $sos-gutter;
 	vertical-align: top;
 	letter-spacing: normal;
+}
+
+// grid modifiers
+// ===========
+
+// reverse option
+// 
+%reverse {
+	direction: rtl;
+	text-align: left;
+
+	> .#{$sos-default-grid-item-class} {
+		direction: ltr;
+		text-align: left;
+	}
+}
+
+.#{$sos-default-grid-class}--reverse,
+.#{$sos-default-grid-class}--rev,
+.#{$sos-default-grid-class}--revert {
+	@extend %reverse;
 }
 
 // widths
