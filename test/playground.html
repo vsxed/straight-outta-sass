@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>straight outta sass (grid)</title>
-
+	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" href="../dist/module.grid.css">
 
 	<style>
@@ -52,7 +52,7 @@
 		}
 
 		.demo {
-			margin-bottom: 12px;
+			margin-bottom: 20px;
 			min-height: 20px;
 			padding-top: 10px;
 			padding-bottom: 10px;
@@ -128,6 +128,20 @@
 							</div>
 							</div>
 						</div>
+					</div>
+				</div>
+			</section>
+			<section class="unit">
+				<h2 class="unit__header">equal heights</h2>
+				<div class="unit__content">
+					<div class="grid grid--equal-height">
+						<div class="grid__item default-1-2" style="vertical-align: middle;"><div class="demo">Smaller Height</div></div>
+						<div class="grid__item default-1-2"><div class="demo" style="height: 150px;">Bigger Height</div></div>
+					</div>
+					<div class="grid">
+						<div class="grid__item default-1-3"><div class="demo">Block</div></div>
+						<div class="grid__item default-1-3"><div class="demo">Block</div></div>
+						<div class="grid__item default-1-3"><div class="demo">Block</div></div>
 					</div>
 				</div>
 			</section>

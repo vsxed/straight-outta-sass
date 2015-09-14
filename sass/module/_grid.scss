@@ -57,7 +57,7 @@ $sos-use-short-bp:      true !default;
 $sos-use-fixed-widths:  true !default;
 $sos-use-push:          false !default;
 $sos-use-pull:          false !default;
-$sos-use-equal-height:  false !default;
+$sos-use-equal-height:  true !default;
 $sos-use-reverse:       true !default;
 $sos-use-gutterless:    true !default;
 
@@ -210,6 +210,23 @@ $sos-settings: (
             padding-left: 0;
         }
     }
+}
+
+// equal heights option
+// 
+@if $sos-use-equal-height {
+    .#{$sos-default-grid-class}--equal-height {
+        display: table;
+        table-layout: fixed;
+        width: calc(100% + #{$sos-gutter});
+
+        > .#{$sos-default-grid-item-class} {
+            display: table-cell;
+            vertical-align: top;
+        }
+    }
+
+    @warn "Caution: the `equal heights` option uses css calc() to size the grid properly! \aThere's no native workaround for this issue but a polyfill. \a\a     Fuck IE8.";
 }
 
 // widths
