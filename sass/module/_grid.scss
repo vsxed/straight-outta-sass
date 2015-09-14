@@ -23,6 +23,7 @@
 //   $sos-use-pull / -push:         bool (…)                - choose if you want to have pull or/and push classes
 //   $sos-use-equal-height:         bool (…)                - choose if you want to have the option to have equal heights in your grid
 //   $sos-use-reverse:              bool (…)                - choose if you want to have the option to reverse your grid item order
+//   $sos-use-gutterless:           bool (…)                - choose if you want to have the option to remove your grid gutter using a class
 
 $sos-debug: false !default;
 
@@ -58,6 +59,7 @@ $sos-use-push:          false !default;
 $sos-use-pull:          false !default;
 $sos-use-equal-height:  false !default;
 $sos-use-reverse:       true !default;
+$sos-use-gutterless:    true !default;
 
 // That's it. You can stop reading any further.
 
@@ -193,6 +195,20 @@ $sos-settings: (
     .#{$sos-default-grid-class}--rev,
     .#{$sos-default-grid-class}--revert {
         @extend %reverse;
+    }
+}
+
+// gutterless option
+// 
+@if $sos-use-gutterless {
+    .#{$sos-default-grid-class}--gutterless,
+    .#{$sos-default-grid-class}--no-gutter,
+    .#{$sos-default-grid-class}--spaceless {
+        margin-left: 0;
+
+        > .#{$sos-default-grid-item-class} {
+            padding-left: 0;
+        }
     }
 }
 
