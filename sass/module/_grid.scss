@@ -144,8 +144,6 @@ $sos-settings: (
 
 @mixin sos-grid($class, $currentCol, $maxCol, $fraction) {
 	.#{unquote($class)}-#{$currentCol}#{unquote($fraction)}#{$maxCol} {
-		content: $maxCol % $currentCol;
-		content: $maxCol / $currentCol;
 		width: (($currentCol / $maxCol) * 100%);
 	}
 }
