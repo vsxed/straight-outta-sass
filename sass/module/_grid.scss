@@ -188,10 +188,12 @@ $sos-settings: (
     }
 }
 
-.#{$sos-default-grid-class}--reverse,
-.#{$sos-default-grid-class}--rev,
-.#{$sos-default-grid-class}--revert {
-    @extend %reverse;
+@if $sos-use-reverse {
+    .#{$sos-default-grid-class}--reverse,
+    .#{$sos-default-grid-class}--rev,
+    .#{$sos-default-grid-class}--revert {
+        @extend %reverse;
+    }
 }
 
 // widths
