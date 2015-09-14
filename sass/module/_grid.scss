@@ -24,7 +24,7 @@
 //   $sos-use-equal-height:         bool (true)             - choose if you want to have the option to have equal heights in your grid
 //   $sos-use-reverse:              bool (true)             - choose if you want to have the option to reverse your grid item order
 //   $sos-use-gutterless:           bool (true)             - choose if you want to have the option to remove your grid gutter using a class
-//   $sos-use-animations:           bool (true)             - choose if you want to have the option to animate you grid item sizes
+//   $sos-use-animations:           bool (false)             - choose if you want to have the option to animate you grid item sizes
 
 $sos-debug: false !default;
 
@@ -61,7 +61,7 @@ $sos-use-pull:          false !default;
 $sos-use-equal-height:  true !default;
 $sos-use-reverse:       true !default;
 $sos-use-gutterless:    true !default;
-$sos-use-animations:    true !default;
+$sos-use-animations:    false !default;
 
 // That's it. You can stop reading any further.
 
