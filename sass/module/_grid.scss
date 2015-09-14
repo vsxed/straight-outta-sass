@@ -11,7 +11,7 @@
 //   $sos-breakpoints:              list (…)                - default list of breakpoints to create mediaqueries
 //   $sos-columns:                  int (12)                - number of columns to use within the grid
 //   $sos-gutter:                   px (20px)               - size of the gutter between each fragment
-//   $sos-fixed-widths:             list (1,2,3,4)          - choose whether you want to have fixed-width classes like "1-2", "3-4", and so on..
+//   $sos-fixed-widths:             list (1,2,3,4,5)        - choose whether you want to have fixed-width classes like "1-2", "3-4", and so on..
 //   $sos-default-class:            string ('default')      - set your default class prefix
 //   $sos-default-grid-class:       string ('grid')         - set your default grid class
 //   $sos-default-grid-item-class:  string ('grid__item')   - set your default grid item class
@@ -41,7 +41,7 @@ $breakpoints:           $sos-breakpoints !default;
 // === NUMBERS ===
 $sos-columns:           12 !default;
 $sos-gutter:            20px !default;
-$sos-fixed-widths:      (1, 2, 3, 4) !default;
+$sos-fixed-widths:      (1, 2, 3, 4, 5) !default;
 
 // === CLASSES ===
 $sos-default-class:     'default' !default;
