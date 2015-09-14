@@ -40,7 +40,7 @@ $sos-use-pull: 			false !default;
 
 // That's it. You can stop reading any further.
 
-$sos-class-fraction: if($sos-use-fractions, '/', '-of-');
+$sos-class-fraction: if($sos-use-fractions, '-', '-of-');
 
 // Debugging
 $sos-settings: (
