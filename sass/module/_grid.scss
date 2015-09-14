@@ -226,7 +226,25 @@ $sos-settings: (
         }
     }
 
-    @warn "Caution: the `equal heights` option uses css calc() to size the grid properly! \aThere's no native workaround for this issue but a polyfill. \a\a     Fuck IE8.";
+    @warn "Caution: the `equal heights` option uses css calc() to size the grid properly! \aThere's no native workaround for this issue but a polyfill. Fuck IE8.";
+
+    @if $sos-be-responsive {
+        @each $breakpoint in $breakpoints {
+            $name: if($sos-use-short-bp, str-slice(nth($breakpoint, 1), 1, 2), nth($breakpoint, 1));
+
+            @include sos-mq(nth($breakpoint, 1)) {
+                .#{$sos-default-grid-class}--revert-table-on-#{$name},
+                .#{$sos-default-grid-class}--revert-on-#{$name},
+                .#{$sos-default-grid-class}--revert-#{$name} {
+                    display: block;
+
+                    > .#{$sos-default-grid-item-class} {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
 }
 
 // widths
