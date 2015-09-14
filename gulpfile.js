@@ -15,7 +15,15 @@ gulp.task('build-css', [], function() {
 	queue({ objectMode: true},
 		gulp.src([src['sass'] + '*.scss']).
             pipe($.sass().on('error', $.sass.logError)).
-            pipe($.autoprefixer())
+            pipe($.autoprefixer({
+            	browsers: [
+            	'Android >= 4.1',
+            	'Firefox >= 26',
+            	'iOS >= 7',
+            	'Safari >= 5',
+            	'Explorer >= 8'
+            	]
+            }))
 		).
 		pipe($.concat('module.grid.css')).
 		pipe(gulp.dest(dest['css']))
