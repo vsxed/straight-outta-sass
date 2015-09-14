@@ -94,6 +94,7 @@
 						<div class="grid__item default-12-12 sm-1-4"><div class="demo">Block</div></div>
 
 					</div>
+					<input id="revert" name="revert" type="checkbox"><label for="revert">Reverse order?</label>
 				</div>
 			</section>
 			<section class="unit">
@@ -132,5 +133,17 @@
 			</section>
 		</section>
 	</div>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#revert').on('change', function() {
+				if($(this).prop('checked')) {
+					$(this).siblings('.grid').addClass('grid--revert');
+				} else {
+					$(this).siblings('.grid').removeClass('grid--revert');
+				}
+			});
+		});
+	</script>
 </body>
 </html>
