@@ -17,11 +17,11 @@ gulp.task('build-css', [], function() {
             pipe($.sass().on('error', $.sass.logError)).
             pipe($.autoprefixer({
             	browsers: [
-            	'Android >= 4.1',
+            	'Android >= 4.4',
             	'Firefox >= 26',
             	'iOS >= 7',
             	'Safari >= 5',
-            	'Explorer >= 8'
+            	'Explorer >= 9'
             	]
             }))
 		).
