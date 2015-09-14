@@ -24,11 +24,17 @@ $breakpoints: 			$sos-breakpoints !default;
 // === NUMBERS ===
 $sos-columns: 			12 !default;
 $sos-gutter: 			20px !default;
+$sos-fixed-widths: 		(1, 2, 3, 4) !default;
+
+// === CLASSES ===
+$sos-default-class: 	'default' !default;
 
 // === OPTIONS ===
 $sos-be-responsive: 	true !default;
 $sos-be-mobilefirst:	true !default;
 $sos-use-fractions: 	true !default;
+$sos-use-short-bp: 		true !default;
+$sos-use-fixed-widths: 	true !default;
 $sos-use-push: 			false !default;
 $sos-use-pull: 			false !default;
 
