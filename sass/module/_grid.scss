@@ -5,7 +5,20 @@
 // It's frickin cool and mobile first
 
 // setup:
-//   TODO
+//   e.g.: $variable: type (default) - description
+// 
+//   $sos-debug: 			bool (false) 		- activate/deactivate debug log
+//   $sos-breakpoints: 		list (…) 			- default list of breakpoints to create mediaqueries
+//   $sos-columns: 			int (12) 			- number of columns to use within the grid
+//   $sos-gutter: 			px (20px) 			- size of the gutter between each fragment
+//   $sos-fixed-widths: 	list (1,2,3,4) 		- choose whether you want to have fixed-width classes like "1-2", "3-4", and so on..
+//   $sos-default-class: 	string ('default') 	- set your default class prefix
+//   $sos-be-responsive: 	bool (true) 		- choose if the whole construction should be responsive
+//   $sos-be-mobilefirst: 	bool (true) 		- choose if the grid should be build mobile first
+//   $sos-use-fractions: 	bool (true) 		- choose if you want to have classes like "1-2" or "1-of-2". The alternative can be changed.
+//   $sos-use-short-bp: 	bool (true) 		- choose whether you want to use short breakpoint names in your responsive classes
+//   $sos-use-fixed-widths: bool (true) 		- choose if you want to use fixed-width classes
+//   $sos-use-pull / -push: bool (…) 			- choose if you want to have pull or/and push classes
 
 $sos-debug: false !default;
 
