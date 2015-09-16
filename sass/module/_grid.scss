@@ -20,7 +20,7 @@
 //   $sos-use-fractions:            bool (true)             - choose if you want to have classes like "1-2" or "1-of-2". The alternative can be changed.
 //   $sos-use-short-bp:             bool (true)             - choose whether you want to use short breakpoint names in your responsive classes
 //   $sos-use-fixed-widths:         bool (true)             - choose if you want to use fixed-width classes
-//   $sos-use-pull / -push:         bool (…)                - choose if you want to have pull or/and push classes
+//   $sos-use-push-and-pull:        bool (true)             - choose if you want to have pull and push classes
 //   $sos-use-equal-height:         bool (true)             - choose if you want to have the option to have equal heights in your grid
 //   $sos-use-reverse:              bool (true)             - choose if you want to have the option to reverse your grid item order
 //   $sos-use-gutterless:           bool (true)             - choose if you want to have the option to remove your grid gutter using a class
@@ -56,8 +56,7 @@ $sos-be-mobilefirst:    true !default;
 $sos-use-fractions:     true !default;
 $sos-use-short-bp:      false !default;
 $sos-use-fixed-widths:  true !default;
-$sos-use-push:          false !default;
-$sos-use-pull:          false !default;
+$sos-use-push-and-pull: true !default;
 $sos-use-equal-height:  true !default;
 $sos-use-reverse:       true !default;
 $sos-use-gutterless:    true !default;
@@ -75,8 +74,7 @@ $sos-settings: (
     'sos-be-responsive' $sos-be-responsive,
     'sos-be-mobilefirst' $sos-be-mobilefirst,
     'sos-use-fractions' $sos-use-fractions,
-    'sos-use-push' $sos-use-push,
-    'sos-use-pull' $sos-use-pull,
+    'sos-use-push-and-pull' $sos-use-push-and-pull,
 );
 
 
@@ -131,14 +129,24 @@ $sos-settings: (
     }
 }
 
-@mixin sos-fixed-widths($class, $list) {
+@mixin sos-fixed-widths($class, $list, $method: false) {
     /* fixed widths */
+    $method: if($method == false, '', '-#{$method}');
     @each $width in $list {
         $sos-base-fixed-width: $width;
 
         @while $width > 0 {
-            .#{unquote($class)}-#{$width}#{unquote($sos-class-fraction)}#{$sos-base-fixed-width} {
-                width: ((100% / $sos-base-fixed-width) * $width);
+            .#{unquote($class)}#{unquote($method)}-#{$width}#{unquote($sos-class-fraction)}#{$sos-base-fixed-width} {
+
+                @if $method != '' {
+                    $multiplicator: if(#{$method} == 'pull', -1, 1);
+                    left: $multiplicator * ((100% / $sos-base-fixed-width) * $width);
+                }
+
+                @else {
+                    width: ((100% / $sos-base-fixed-width) * $width);  
+                }
+                
             }
 
             $width: $width - 1;
@@ -149,6 +157,13 @@ $sos-settings: (
 @mixin sos-grid($class, $currentCol, $maxCol, $fraction) {
     .#{unquote($class)}-#{$currentCol}#{unquote($fraction)}#{$maxCol} {
         width: (($currentCol / $maxCol) * 100%);
+    }
+}
+
+@mixin sos-push-or-pull($breakpointClass, $methodClass, $cssPosition, $cssMargin, $currentCol, $maxCol, $fraction) {
+    .#{unquote($breakpointClass)}-#{unquote($methodClass)}-#{$currentCol}#{unquote($fraction)}#{$maxCol} {
+        $multiplicator: if(#{$methodClass} == 'pull', -1, 1);
+        left: $multiplicator * ((100% / $maxCol) * $currentCol);
     }
 }
 
@@ -287,6 +302,45 @@ $columns: $sos-columns;
 
             @if $sos-use-fixed-widths {
                 @include sos-fixed-widths($name, $sos-fixed-widths);
+            }
+        }
+    }
+}
+
+// push + pull
+@if $sos-use-push-and-pull {
+
+    [class*="push-"], [class*="pull-"] { position: relative; }
+
+    @each $i in ("push" left right, "pull" right left) {
+
+        $columns: $sos-columns;
+        @while $columns > 0 {
+            @include sos-push-or-pull($sos-default-class, nth($i, 1), nth($i, 2), nth($i, 3), $columns, $sos-columns, $sos-class-fraction);
+
+            $columns: $columns - 1;
+        }
+
+        @if $sos-use-fixed-widths {
+           @include sos-fixed-widths($sos-default-class, $sos-fixed-widths, nth($i, 1));
+        }
+
+        @if $sos-be-responsive {
+            @each $breakpoint in $breakpoints {
+                $name: if($sos-use-short-bp, str-slice(nth($breakpoint, 1), 1, 2), nth($breakpoint, 1));
+                $columns: $sos-columns;
+
+                @include sos-mq(nth($breakpoint, 1)) {
+                    @while $columns > 0 {
+                        @include sos-push-or-pull($name, nth($i, 1), nth($i, 2), nth($i, 3), $columns, $sos-columns, $sos-class-fraction);
+
+                        $columns: $columns - 1;
+                    }
+
+                    @if $sos-use-fixed-widths {
+                        @include sos-fixed-widths($name, $sos-fixed-widths, nth($i, 1));
+                    }
+                }
             }
         }
     }
