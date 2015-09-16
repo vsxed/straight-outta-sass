@@ -2,14 +2,679 @@
  * This is where you call your modules. 
  * Could be a setup file or whatever you want it to be. 
  */
-/* Debugging */
-body:before {
-  content: "SASS Variables: \a\a $breakpoints: 4\a $sos-columns: 12\a $sos-gutter: 20px\a $sos-be-responsive: true\a $sos-be-mobilefirst: true\a $sos-use-fractions: true\a $sos-use-push: false\a $sos-use-pull: false";
-  display: block;
-  background: #eee;
-  width: 90%;
-  max-width: 1200px;
-  margin: 24px auto 0;
-  padding: 24px 20px;
-  white-space: pre;
-  line-height: 2; }
+
+.grid,
+.grid__item {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.grid {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin-left: -20px;
+	letter-spacing: -0.31em;
+}
+
+.grid__item {
+	display: inline-block;
+	width: 100%;
+	padding-left: 20px;
+	vertical-align: top;
+	letter-spacing: normal;
+}
+
+.grid--reverse,
+.grid--rev,
+.grid--revert {
+	direction: rtl;
+	text-align: left;
+}
+
+.grid--reverse > .grid__item,
+.grid--rev > .grid__item,
+.grid--revert > .grid__item {
+	direction: ltr;
+	text-align: left;
+}
+
+.grid--gutterless,
+.grid--no-gutter,
+.grid--spaceless {
+	margin-left: 0;
+}
+
+.grid--gutterless > .grid__item,
+.grid--no-gutter > .grid__item,
+.grid--spaceless > .grid__item {
+	padding-left: 0;
+}
+
+.grid--equal-height {
+	display: table;
+	table-layout: fixed;
+	width: -webkit-calc(100% + 20px);
+	width: calc(100% + 20px);
+}
+
+.grid--equal-height > .grid__item {
+	display: table-cell;
+	vertical-align: top;
+}
+
+.default-12-12 {
+	width: 100%;
+}
+
+.default-11-12 {
+	width: 91.66667%;
+}
+
+.default-10-12 {
+	width: 83.33333%;
+}
+
+.default-9-12 {
+	width: 75%;
+}
+
+.default-8-12 {
+	width: 66.66667%;
+}
+
+.default-7-12 {
+	width: 58.33333%;
+}
+
+.default-6-12 {
+	width: 50%;
+}
+
+.default-5-12 {
+	width: 41.66667%;
+}
+
+.default-4-12 {
+	width: 33.33333%;
+}
+
+.default-3-12 {
+	width: 25%;
+}
+
+.default-2-12 {
+	width: 16.66667%;
+}
+
+.default-1-12 {
+	width: 8.33333%;
+}
+
+/* fixed widths */
+
+.default-1-1 {
+	width: 100%;
+}
+
+.default-2-2 {
+	width: 100%;
+}
+
+.default-1-2 {
+	width: 50%;
+}
+
+.default-3-3 {
+	width: 100%;
+}
+
+.default-2-3 {
+	width: 66.66667%;
+}
+
+.default-1-3 {
+	width: 33.33333%;
+}
+
+.default-4-4 {
+	width: 100%;
+}
+
+.default-3-4 {
+	width: 75%;
+}
+
+.default-2-4 {
+	width: 50%;
+}
+
+.default-1-4 {
+	width: 25%;
+}
+
+.default-5-5 {
+	width: 100%;
+}
+
+.default-4-5 {
+	width: 80%;
+}
+
+.default-3-5 {
+	width: 60%;
+}
+
+.default-2-5 {
+	width: 40%;
+}
+
+.default-1-5 {
+	width: 20%;
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 48.0625em) {
+
+.grid--revert-table-on-po,
+.grid--revert-on-po,
+.grid--revert-po {
+	display: block;
+}
+
+.grid--revert-table-on-po > .grid__item,
+.grid--revert-on-po > .grid__item,
+.grid--revert-po > .grid__item {
+	display: inline-block;
+}
+
+.po-12-12 {
+	width: 100%;
+}
+
+.po-11-12 {
+	width: 91.66667%;
+}
+
+.po-10-12 {
+	width: 83.33333%;
+}
+
+.po-9-12 {
+	width: 75%;
+}
+
+.po-8-12 {
+	width: 66.66667%;
+}
+
+.po-7-12 {
+	width: 58.33333%;
+}
+
+.po-6-12 {
+	width: 50%;
+}
+
+.po-5-12 {
+	width: 41.66667%;
+}
+
+.po-4-12 {
+	width: 33.33333%;
+}
+
+.po-3-12 {
+	width: 25%;
+}
+
+.po-2-12 {
+	width: 16.66667%;
+}
+
+.po-1-12 {
+	width: 8.33333%;
+}
+
+/* fixed widths */
+
+.po-1-1 {
+	width: 100%;
+}
+
+.po-2-2 {
+	width: 100%;
+}
+
+.po-1-2 {
+	width: 50%;
+}
+
+.po-3-3 {
+	width: 100%;
+}
+
+.po-2-3 {
+	width: 66.66667%;
+}
+
+.po-1-3 {
+	width: 33.33333%;
+}
+
+.po-4-4 {
+	width: 100%;
+}
+
+.po-3-4 {
+	width: 75%;
+}
+
+.po-2-4 {
+	width: 50%;
+}
+
+.po-1-4 {
+	width: 25%;
+}
+
+.po-5-5 {
+	width: 100%;
+}
+
+.po-4-5 {
+	width: 80%;
+}
+
+.po-3-5 {
+	width: 60%;
+}
+
+.po-2-5 {
+	width: 40%;
+}
+
+.po-1-5 {
+	width: 20%;
+}
+
+}
+
+@media only screen and (min-width: 48.0626em) {
+
+.grid--revert-table-on-de,
+.grid--revert-on-de,
+.grid--revert-de {
+	display: block;
+}
+
+.grid--revert-table-on-de > .grid__item,
+.grid--revert-on-de > .grid__item,
+.grid--revert-de > .grid__item {
+	display: inline-block;
+}
+
+.de-12-12 {
+	width: 100%;
+}
+
+.de-11-12 {
+	width: 91.66667%;
+}
+
+.de-10-12 {
+	width: 83.33333%;
+}
+
+.de-9-12 {
+	width: 75%;
+}
+
+.de-8-12 {
+	width: 66.66667%;
+}
+
+.de-7-12 {
+	width: 58.33333%;
+}
+
+.de-6-12 {
+	width: 50%;
+}
+
+.de-5-12 {
+	width: 41.66667%;
+}
+
+.de-4-12 {
+	width: 33.33333%;
+}
+
+.de-3-12 {
+	width: 25%;
+}
+
+.de-2-12 {
+	width: 16.66667%;
+}
+
+.de-1-12 {
+	width: 8.33333%;
+}
+
+/* fixed widths */
+
+.de-1-1 {
+	width: 100%;
+}
+
+.de-2-2 {
+	width: 100%;
+}
+
+.de-1-2 {
+	width: 50%;
+}
+
+.de-3-3 {
+	width: 100%;
+}
+
+.de-2-3 {
+	width: 66.66667%;
+}
+
+.de-1-3 {
+	width: 33.33333%;
+}
+
+.de-4-4 {
+	width: 100%;
+}
+
+.de-3-4 {
+	width: 75%;
+}
+
+.de-2-4 {
+	width: 50%;
+}
+
+.de-1-4 {
+	width: 25%;
+}
+
+.de-5-5 {
+	width: 100%;
+}
+
+.de-4-5 {
+	width: 80%;
+}
+
+.de-3-5 {
+	width: 60%;
+}
+
+.de-2-5 {
+	width: 40%;
+}
+
+.de-1-5 {
+	width: 20%;
+}
+
+}
+
+@media only screen and (max-width: 48.0625em) {
+
+.grid--revert-table-on-mo,
+.grid--revert-on-mo,
+.grid--revert-mo {
+	display: block;
+}
+
+.grid--revert-table-on-mo > .grid__item,
+.grid--revert-on-mo > .grid__item,
+.grid--revert-mo > .grid__item {
+	display: inline-block;
+}
+
+.mo-12-12 {
+	width: 100%;
+}
+
+.mo-11-12 {
+	width: 91.66667%;
+}
+
+.mo-10-12 {
+	width: 83.33333%;
+}
+
+.mo-9-12 {
+	width: 75%;
+}
+
+.mo-8-12 {
+	width: 66.66667%;
+}
+
+.mo-7-12 {
+	width: 58.33333%;
+}
+
+.mo-6-12 {
+	width: 50%;
+}
+
+.mo-5-12 {
+	width: 41.66667%;
+}
+
+.mo-4-12 {
+	width: 33.33333%;
+}
+
+.mo-3-12 {
+	width: 25%;
+}
+
+.mo-2-12 {
+	width: 16.66667%;
+}
+
+.mo-1-12 {
+	width: 8.33333%;
+}
+
+/* fixed widths */
+
+.mo-1-1 {
+	width: 100%;
+}
+
+.mo-2-2 {
+	width: 100%;
+}
+
+.mo-1-2 {
+	width: 50%;
+}
+
+.mo-3-3 {
+	width: 100%;
+}
+
+.mo-2-3 {
+	width: 66.66667%;
+}
+
+.mo-1-3 {
+	width: 33.33333%;
+}
+
+.mo-4-4 {
+	width: 100%;
+}
+
+.mo-3-4 {
+	width: 75%;
+}
+
+.mo-2-4 {
+	width: 50%;
+}
+
+.mo-1-4 {
+	width: 25%;
+}
+
+.mo-5-5 {
+	width: 100%;
+}
+
+.mo-4-5 {
+	width: 80%;
+}
+
+.mo-3-5 {
+	width: 60%;
+}
+
+.mo-2-5 {
+	width: 40%;
+}
+
+.mo-1-5 {
+	width: 20%;
+}
+
+}
+
+@media only screen and (max-width: 40.062em) {
+
+.grid--revert-table-on-sm,
+.grid--revert-on-sm,
+.grid--revert-sm {
+	display: block;
+}
+
+.grid--revert-table-on-sm > .grid__item,
+.grid--revert-on-sm > .grid__item,
+.grid--revert-sm > .grid__item {
+	display: inline-block;
+}
+
+.sm-12-12 {
+	width: 100%;
+}
+
+.sm-11-12 {
+	width: 91.66667%;
+}
+
+.sm-10-12 {
+	width: 83.33333%;
+}
+
+.sm-9-12 {
+	width: 75%;
+}
+
+.sm-8-12 {
+	width: 66.66667%;
+}
+
+.sm-7-12 {
+	width: 58.33333%;
+}
+
+.sm-6-12 {
+	width: 50%;
+}
+
+.sm-5-12 {
+	width: 41.66667%;
+}
+
+.sm-4-12 {
+	width: 33.33333%;
+}
+
+.sm-3-12 {
+	width: 25%;
+}
+
+.sm-2-12 {
+	width: 16.66667%;
+}
+
+.sm-1-12 {
+	width: 8.33333%;
+}
+
+/* fixed widths */
+
+.sm-1-1 {
+	width: 100%;
+}
+
+.sm-2-2 {
+	width: 100%;
+}
+
+.sm-1-2 {
+	width: 50%;
+}
+
+.sm-3-3 {
+	width: 100%;
+}
+
+.sm-2-3 {
+	width: 66.66667%;
+}
+
+.sm-1-3 {
+	width: 33.33333%;
+}
+
+.sm-4-4 {
+	width: 100%;
+}
+
+.sm-3-4 {
+	width: 75%;
+}
+
+.sm-2-4 {
+	width: 50%;
+}
+
+.sm-1-4 {
+	width: 25%;
+}
+
+.sm-5-5 {
+	width: 100%;
+}
+
+.sm-4-5 {
+	width: 80%;
+}
+
+.sm-3-5 {
+	width: 60%;
+}
+
+.sm-2-5 {
+	width: 40%;
+}
+
+.sm-1-5 {
+	width: 20%;
+}
+
+}
+
