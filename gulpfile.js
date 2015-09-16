@@ -28,7 +28,10 @@ gulp.task('build-css', [], function() {
             pipe(cmq())
 		).
 		pipe($.concat('module.grid.css')).
-		pipe(gulp.dest(dest['css']))
+		pipe(gulp.dest(dest['css'])).
+        pipe($.cssmin()).
+        pipe($.concat('module.grid.min.css')).
+        pipe(gulp.dest(dest['css']))
 });
 
 gulp.task('watch', function() {
