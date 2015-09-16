@@ -12,7 +12,7 @@ var src = {
 		"css": "./dist/",
 	};
 
-gulp.task('build-css', [], function() {
+gulp.task('build', [], function() {
 	queue({ objectMode: true},
 		gulp.src([src['sass'] + '*.scss']).
             pipe($.sass().on('error', $.sass.logError)).
@@ -35,6 +35,6 @@ gulp.task('build-css', [], function() {
 });
 
 gulp.task('watch', function() {
-	gulp.watch(src['sass'] + '**/*.scss', ['build-css']);
+	gulp.watch(src['sass'] + '**/*.scss', ['build']);
 });
 
